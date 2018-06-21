@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Meme editor</title>
+</head>
+
+<body onload="init()">
+    <header class="margin-zero text-align-center">
+        <div class="flex justify-space-between flex-wrap max-width margin-zero head-container">
+            <h1 class="logo">Meme generator!
+            </h1>
+            <nav>
+                <ul class="nav-list flex justify-center flex-wrap margin-zero text-align-center">
+                    <li>
+                        <a class="active nav-item" href="#">gallery</a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item">about</a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item">get in touch</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="gallery-section">
+            <ul class="gallery-container justify-space-around">
+            </ul>
+        </div>
+
+        <div class="generator generator-container text-align-center justify-space-around ">
+            <div class="canvas-container flex flex-colom" onclick="handleClick(event)">
+                <button onclick="backToGallery()">back to gallery -></button>
+                <canvas></canvas>
+            </div>
+            <div class="flax flex-colom canvas-editor-container">
+                Write your text here:
+                <input type="text" onkeyup="writeOnCanvasInput(event)" />
+                <div class="text-editor">
+                    <select class="status-filter" onchange="setColor(this.value)">
+                        <option>black</option>
+                        <option>red</option>
+                        <option>white</option>
+                    </select>
+                    <button onclick="changeFontSize('bigger')">+</button>
+                    <button onclick="changeFontSize('smaller')">-</button>
+                    <select class="status-filter" onchange="setFont(this.value)">
+                        <option>arial</option>
+                        <option>impact</option>
+                        <option>Fantasy</option>
+                    </select>
+                    <button onclick="addLine()">add line</button>
+                    <button onclick="moveOnXDimention('left')"></button>
+                    <button onclick="moveOnXDimention('right')"></button>
+                    <button class="clear" onclick="clearCanvasTxt()">clear</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/service.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/utils.js"></script>
+
+</body>
+
+</html>
