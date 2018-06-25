@@ -15,60 +15,103 @@
             <h1 class="logo">Meme generator!
             </h1>
             <nav>
-                <ul class="nav-list flex justify-center flex-wrap margin-zero text-align-center">
-                    <li>
-                        <a class="active nav-item" href="#">gallery</a>
+                <ul class="nav-list list flex justify-center align-center flex-wrap margin-zero text-align-center">
+                    <li onclick="backToGallery()">
+                        <a class="nav-item flex justify-center align-center" href="#">gallery</a>
                     </li>
                     <li>
-                        <a href="#" class="nav-item">about</a>
+                        <a href="#" class="nav-item flex justify-center align-center">about</a>
                     </li>
                     <li>
-                        <a href="#" class="nav-item">get in touch</a>
+                        <a href="#" class="nav-item flex justify-center align-center">get in touch</a>
                     </li>
                 </ul>
             </nav>
+            <div class="hamburger" onclick="toggleMenu()"></div>
         </div>
     </header>
+    <div class="not-header" onclick="closeMenu()">
+    <div class="gallery-section">
+        <ul></ul>
+        <div class="popular-key-words list flex flex-wrap">
+            <ul></ul>
+        </div>
+    </div>
 
     <main>
-        <div class="gallery-section">
-            <ul class="gallery-container justify-space-around">
+        <div class="search">
+            <button onclick="renderImgs(gImgs)">SHOW ALL</button> Search Image
+            <input class="gallery-search" onkeyup="filterImgs()" />
+            <ul class="gallery-container flex flex-wrap">
             </ul>
         </div>
 
-        <div class="generator generator-container text-align-center justify-space-around ">
+        <div class="generator generator-container text-align-center justify-space-around">
             <div class="canvas-container flex flex-colom" onclick="handleClick(event)">
                 <button onclick="backToGallery()">back to gallery -></button>
-                <canvas></canvas>
+                <canvas width="500"></canvas>
+                <button class="downloadImg">
+                    <a class="downloadImg" href="#" onclick="downloadImg(this)" download="my-meme.jpg">
+                        Download as jpg
+                    </a>
+                </button>
             </div>
-            <div class="flax flex-colom canvas-editor-container">
-                Write your text here:
-                <input type="text" onkeyup="writeOnCanvasInput(event)" />
+            <div class="flax flex-colom canvas-editor">
+                <div class="write-txt">Write your text here:
+                    <br />
+                </div>
+                <input class="text-img" type="text" onkeyup="writeOnCanvasInput(event)" />
                 <div class="text-editor">
                     <select class="status-filter" onchange="setColor(this.value)">
+                        <option>white</option>
                         <option>black</option>
                         <option>red</option>
-                        <option>white</option>
                     </select>
                     <button onclick="changeFontSize('bigger')">+</button>
                     <button onclick="changeFontSize('smaller')">-</button>
                     <select class="status-filter" onchange="setFont(this.value)">
-                        <option>arial</option>
                         <option>impact</option>
-                        <option>Fantasy</option>
+                        <option>arial</option>
+                        <option>Lato</option>
                     </select>
                     <button onclick="addLine()">add line</button>
-                    <button onclick="moveOnXDimention('left')"></button>
-                    <button onclick="moveOnXDimention('right')"></button>
-                    <button class="clear" onclick="clearCanvasTxt()">clear</button>
+                    <button onclick="moveTxt('right')">align-right</button>
+                    <button onclick="moveTxt('center')">align-center</button>
+                    <button onclick="moveTxt('left')">align-left</button>
+                    <button onclick="moveTxt('up')">up</button>
+                    <button onclick="moveTxt('down')">down</button>
+                    <button class="clear" onclick="clearCanvasTxt()">Clear-All</button>
                 </div>
             </div>
         </div>
     </main>
-    <script src="js/service.js"></script>
+    </div>
+    <div class="my-details">
+        <h2>Shani Bensal</h2>
+        <h2 class="proffesion"></h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque optio dolor fugiat incidunt voluptatibus, dolorem
+            voluptates quo assumenda rem dolore doloribus placeat aliquid voluptas asperiores, provident accusamus perferendis
+            illum vero.
+        </p>
+    </div>
+    <div class="contect-me">
+        <h2>Get In Touch</h2>
+        <h3>In order to get in touch use the contact form below:</h3>
+        <div class="input-contact flex flex-colom justify-space-between">
+            <input type="text" placeholder="Name(requierd)">
+            <input type="email" placeholder="Email(requierd)">
+            <input type="text" placeholder="Subject">
+            <input type="text" class="messege" placeholder="Write your messege here...">
+        </div>
+    </div>
+    <footer>
+    </footer>
     <script src="js/main.js"></script>
+    <script src="js/service.js"></script>
+    <script src="js/imgs-list.js"></script>
     <script src="js/utils.js"></script>
-
+    <script src="js/service-gallery.js"></script>
+    <script src="js/main-gallery.js"></script>
 </body>
 
 </html>
